@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package panco;
+
+option go_package="panco/";
+
+service PancoRPC {
+  rpc RequestDo(Parameter) returns (Response) {}
+}
+
+
+message Parameter {
+  string uri = 1;
+  map<string, string> header = 2;
+  bytes body = 3;
+}
+
+message Response {
+  int32 status = 1;
+  bytes body = 2;
+}
